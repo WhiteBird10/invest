@@ -22,7 +22,10 @@
         <h2 class="exelent">Мячик</h2>
     </div>
     <div id="happyimg">
-        <h2 class="exelent"></h2>>Весёлые картинки</h2>
+        <h2 class="exelent">Весёлые картинки</h2>
+        <img src="img/жиза.jpg" alt="жиза">
+        <img src="img/КиС.png" alt="КиС">
+        <img src="img/яхд.jpg" alt="факт">
     </div>
     <div id="timetable">
         <h2 class="exelent"></h2>>Расписание звонков</h2>
@@ -44,9 +47,75 @@
     </div>
     <div id="timetable">
         <h2 class="exelent"></h2>>Расписание пар</h2>
+        <table>
+            <thead>
+                <tr>
+                    <td>Номер пары </td>
+                    <td>Название предмета </td>
+                    <td>Аудитория</td>
+                    <td>Преподаватель</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>3</td>
+                    <td>Проектрирование и автоматизация бизнес-процессов</td>
+                    <td>219/4к</td>
+                    <td>Деев О.А.</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>Проектрирование и автоматизация бизнес-процессов</td>
+                    <td>215/4к</td>
+                    <td>Деев О.А.</td>
+                </tr>
+            </tbody>
+        </table>
     </div>
     <div id="diary">
         <h2 class="exelent"></h2>>Дневник</h2>
+        <form action="">
+            <div>
+                <label for="fio">Фамилия, имя, отчество</label>
+                <input type="text" name="fio" value="Халявина Полина Сургеевна" >
+            </div>
+            <div>
+                <label for="fio">Пол</label>
+                <input type="radio" id="gender"  value="male">Мужской
+                <input type="radio" id="gender"  value="famale" checked>Женский
+            </div>
+            <div>
+                <label for="school">Школа</label>
+                <input type="text" name="school" id="school" value="Школы №71" >
+            </div>
+            <div>
+                <label for="class">Класс</label>
+                <input type="text" name="class" id="class" value="11A" >
+            </div>
+            <div>
+                <label for="locality">Населенный пункт</label>
+                <input type="text" name="locality" id="locality" value="город Ижевск" >
+            </div>
+            <div>
+                <label for="color">Цвет обложки</label>
+                <input type="color" name="color" id="color" value="cac7e1" >
+            </div>
+            <div>
+                <label for="year">Год начала учебного года</label>
+                <input type="number" name="year" min="2010" max="2021" value="2010" >
+            </div>
+            <div>
+                <label for="email">Email</label>
+                <input type="email" name="email"  id="email" value="polina.halyawina@yandex">            
+            </div>
+            <div>
+                <label for="tel">Телефон</label>
+                <input type="tel" name="tel"  id="tel" value="+7999999999999999">            
+            </div>
+            <div>
+                <input type="submit" id="create" value="Создать">            
+            </div>
+        </form>
     </div>
     <div id="accounting">
         <h2 class="exelent"></h2>>Бухгалтерия</h2>
