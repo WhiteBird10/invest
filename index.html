@@ -4,11 +4,11 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<title>reveal.js</title>
+		<title>Инвестиции</title>
 
 		<link rel="stylesheet" href="dist/reset.css">
 		<link rel="stylesheet" href="dist/reveal.css">
-		<link rel="stylesheet" href="dist/theme/black.css" id="theme">
+		<link rel="stylesheet" href="dist/theme/blood.css" id="theme">
 
 		<!-- Theme used for syntax highlighted code -->
 		<link rel="stylesheet" href="plugin/highlight/monokai.css" id="highlight-theme">
@@ -16,9 +16,28 @@
 	<body>
 		<div class="reveal">
 			<div class="slides">
-				<section>Слайд 1</section>
-				<section>Slide 2</section>
-			</div>
+				<section class="center">
+					<h1>Инвестиции</h1>
+				</section>
+				<section class="center">
+					<h2>Определение</h2>
+				</section>
+				<section data-markdown="markdown/invest.md"></section>
+				<section data-markdown="markdown/types.md"></section>
+				<section data-markdown="markdown/trading.md"></section>
+				<section data-markdown="markdown/spred.md"></section>
+				<section data-markdown="markdown/bull.md"></section>
+				<section data-markdown="markdown/security_paper.md"></section>
+				<section data-markdown="markdown/marked.md"></section>
+				<section data-markdown="markdown/investment_portfolio.md"></section>
+				<section data-markdown="markdown/bear.md"></section>
+				<section data-markdown="markdown/flat.md"></section>
+				<section data-markdown="markdown/broker.md"></section>
+				<section data-markdown="markdown/bull_and_bear.md"></section>
+				<section data-markdown="markdown/exchange.md"></section>
+				<section data-markdown="markdown/diversification.md"></section>
+				<section data-markdown="markdown/rate_of_return.md"></section>
+			
 		</div>
 
 		<script src="dist/reveal.js"></script>
@@ -31,7 +50,22 @@
 			// - https://revealjs.com/config/
 			Reveal.initialize({
 				hash: true,
+				center: false,
+				slideNumber: true,
+				controls:true,
+				dependencies:[
+					{
+						src:'plugin/menu/menu.js'
+					},
+					{
+						src:'plugin/fullscreen/fullscreen.js'
+					}
+				],
 
+			menu: {
+				numbers: true,
+				markers: true,
+			},
 				// Learn about plugins: https://revealjs.com/plugins/
 				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
 			});
