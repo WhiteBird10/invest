@@ -23,21 +23,76 @@
 					<h2>Определение</h2>
 				</section>
 				<section data-markdown="markdown/invest.md"></section>
-				<section data-markdown="markdown/types.md"></section>
 				<section data-markdown="markdown/trading.md"></section>
-				<section data-markdown="markdown/spred.md"></section>
-				<section data-markdown="markdown/bull.md"></section>
-				<section data-markdown="markdown/security_paper.md"></section>
 				<section data-markdown="markdown/marked.md"></section>
+				<section data-markdown="markdown/exchange.md"></section>
+				<section data-markdown="markdown/broker.md"></section>
+				<section data-markdown="markdown/security_paper.md"></section>
+				<section data-markdown="markdown/types.md"></section>
 				<section data-markdown="markdown/investment_portfolio.md"></section>
+				<section data-markdown="markdown/diversification.md"></section>		
+				<section data-markdown="markdown/spred.md"></section>
+				<section data-markdown="markdown/bull_and_bear.md"></section>
+				<section data-markdown="markdown/bull.md"></section>
 				<section data-markdown="markdown/bear.md"></section>
 				<section data-markdown="markdown/flat.md"></section>
-				<section data-markdown="markdown/broker.md"></section>
-				<section data-markdown="markdown/bull_and_bear.md"></section>
-				<section data-markdown="markdown/exchange.md"></section>
-				<section data-markdown="markdown/diversification.md"></section>
-				<section data-markdown="markdown/rate_of_return.md"></section>
-			
+				<section>
+					<section data-markdown>
+						<script type="text/template">
+							### Доходность по методу Дитца
+
+							Введем обозначения:  
+							- $R$ - доходность портфеля в процентах
+							- $S_e$ - стоимость портфеля на конец периода 
+							- $S_b$ - стоимость портфеля на начало периода
+							- $S_a$ - пополнение счета
+							- $S_w$ - снятие со счета 
+							- $W_t$ - временной весовой коэффицент, который применяется к каждому денежному потоку в портфеле
+							- $T$ - длительность отчетного периодав днях, за который считается доходность 
+							- $t$ - количество дней с начала инвестирования
+						</script>
+					</section>	
+					<section data-markdown>
+						<script type="text/template">
+							### Доходность по методу Дитца
+							$$
+							W_t=\dfrac{T-t}{T}
+							$$
+							$$
+							R=\dfrac{S_e-S_b-\sum S_a+\sum S_w}{S_b+\sum (S_a W_t)-\sum (S_w W_t)}
+							$$
+						</script>
+					</section>	
+				</section>
+				<section class="center">
+					<h2>Графики</h2>
+				</section>
+					<section data-markdown="markdown/line_chart.md"></section>
+					<section data-markdown="markdown/candlestick.md"></section>
+					<section data-fullscreen>
+						<iframe data-src="html/candlestick.html"
+						class="stretch"></iframe>
+					</section>
+					<section class="center">
+						<h2>Монополия</h2>
+					</section>
+					<section data-fullscreen>
+						<iframe data-src="html/monopoly.html"
+						class="stretch"></iframe>
+					</section>
+					<section class="center">
+						<h2>Юмор</h2>
+						<!-- Высокое качество-->
+						<section data-background-image="html/img/bez.png" data-background-size="contain"></section>
+						<!-- Вертикальная-->
+						<section data-background-image="html/img/max.jpg" data-background-size="contain"></section>
+						<!-- Низкого качество-->
+						<section><img src="html/img/images.jfif"></section>
+					</section>
+					<section class="center" data-menu-title="Заключительный">
+						Спасибо за внимание!!!
+					</section>
+			</div>
 		</div>
 
 		<script src="dist/reveal.js"></script>
@@ -59,7 +114,11 @@
 					},
 					{
 						src:'plugin/fullscreen/fullscreen.js'
-					}
+					},
+					{
+						src:'plugin/katex/katex.js',
+						async:true,
+					},
 				],
 
 			menu: {
