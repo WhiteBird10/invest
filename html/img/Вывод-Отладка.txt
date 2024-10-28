@@ -1,0 +1,15 @@
+﻿"ConsoleApplication30.exe" (Win32). Загружено "C:\Users\stud\source\repos\ConsoleApplication30\Debug\ConsoleApplication30.exe". Символы загружены.
+"ConsoleApplication30.exe" (Win32). Загружено "C:\Windows\SysWOW64\ntdll.dll". 
+"ConsoleApplication30.exe" (Win32). Загружено "C:\Windows\SysWOW64\kernel32.dll". 
+"ConsoleApplication30.exe" (Win32). Загружено "C:\Windows\SysWOW64\KernelBase.dll". 
+"ConsoleApplication30.exe" (Win32). Загружено "C:\Windows\SysWOW64\apphelp.dll". 
+"ConsoleApplication30.exe" (Win32). Загружено "C:\Windows\SysWOW64\msvcp140d.dll". 
+"ConsoleApplication30.exe" (Win32). Загружено "C:\Windows\SysWOW64\vcruntime140d.dll". 
+"ConsoleApplication30.exe" (Win32). Загружено "C:\Windows\SysWOW64\ucrtbased.dll". 
+Поток 0x2c28 завершился с кодом 0 (0x0).
+"ConsoleApplication30.exe" (Win32). Загружено "C:\Windows\SysWOW64\kernel.appcore.dll". 
+"ConsoleApplication30.exe" (Win32). Загружено "C:\Windows\SysWOW64\msvcrt.dll". 
+"ConsoleApplication30.exe" (Win32). Загружено "C:\Windows\SysWOW64\rpcrt4.dll". 
+Поток 0x45e0 завершился с кодом 0 (0x0).
+Поток 0x3b34 завершился с кодом 0 (0x0).
+Программа "[19240] ConsoleApplication30.exe" завершилась с кодом 0 (0x0).

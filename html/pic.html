@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: #feeddc;
+        }
+        #area{
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+        }
+        .pict{
+            display: block;
+            position: relative;
+            background-color: white;
+            width: 344px;
+            height: 496px;
+            margin: 20px;
+            border: 2px solid #b0b1ad;
+            box-shadow: -2px 2px 2px 2px #8b8076;
+        }
+        .pict div{
+            position: absolute;
+        }
+        .grey{
+            background-color: #dfe1e6;
+        }
+        .brown{
+            background-color: #664a32;
+        }
+        .blue{
+            background-color: #a8c2cf;
+        }
+        .border{
+            border: 3px solid #525252;
+            z-index: 2;
+        }
+        #square1{
+            width: 142px;
+            height: 142px;
+            left: 98px;
+            top: 174px;
+        }
+        #square2{
+            width: 120px;
+            height: 120px;
+            left: 38px;
+            top: 114px;
+        }
+        #square3{
+            width: 80px;
+            height: 80px;
+            left: 132px;
+            top: 282px;
+        }
+        #square4{
+            width: 70px;
+            height: 35px;
+            left: 211px;
+            top: 156px;
+        }
+        #circ1{
+            width: 142px;
+            height: 142px;
+            left: 98px;
+            top: 158px;
+            border-radius: 71px;
+        }
+        #circ2{
+            width: 124px;
+            height: 124px;
+            left: 110px;
+            top: 90px;
+            border-radius: 62px;
+        }
+        #circ3{
+            width: 80px;
+            height: 80px;
+            left: 132px;
+            top: 258px;
+            border-radius: 40px;
+        }
+        #circ4{
+            width: 80px;
+            height: 40px;
+            left: 132px;
+            top: 348px;
+            border-radius: 40px 40px 0px 0px;
+        }
+        .triangle{
+            height: 2px;
+            z-index: 2;
+            background-color:  #525252 ;
+            width: 166px;
+        }
+        #triangle1b{
+            top: 295px;
+            left: 87px;
+        }
+        #triangle1l{
+            top: 223px;
+            left: 46px;
+            transform: rotate(-60deg);
+        }
+        #triangle1r{
+            top: 223px;
+            left: 128px;
+            transform: rotate(60deg);
+        }
+        #triangle2{
+            display: inline-block;
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 0 59px 108px 59px;
+            border-color:  transparent transparent #a8c2cf transparent;
+            left: 113px;
+            top: 87px;
+        }
+        #triangle3{
+            display: inline-block;
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 0 34px 68px 34px;
+            border-color: transparent transparent #664a32 transparent;
+            left: 132px;
+            top: 258px;
+        }
+        #triangle4{
+            display: inline-block;
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 0 34px 68px 34px;
+            border-color: transparent transparent #dfe1e6 transparent;
+            left: 132px;
+            top: 358px;
+        }
+        #triangle4:after{
+            width: 68px;
+            height: 38px;
+            background-color: white;
+            content: "";
+            position: absolute;
+            left: -34px;
+        }
+    </style>
+</head>
+<body>
+    <div id="area">
+        <div class="pict">
+            <div id="circ1" class="border"></div>
+            <div id="circ2" class="blue"></div>
+            <div id="circ3" class="brown"></div>
+            <div id="circ4" class="grey"></div>
+        </div>
+        <div class="pict">
+            <div id="square1" class="border"></div>
+            <div id="square2" class="blue"></div>
+            <div id="square3" class="brown"></div>
+            <div id="square4" class="grey"></div>
+        </div>
+        <div class="pict">
+            <div id="triangle1l" class="triangle"></div>
+            <div id="triangle1r" class="triangle"></div>
+            <div id="triangle1b" class="triangle"></div>
+            <div id="triangle2" class=""></div>
+            <div id="triangle3" class=""></div>
+            <div id="triangle4" class=""></div>
+        </div>
+    </div>
+</body>
+</html>
