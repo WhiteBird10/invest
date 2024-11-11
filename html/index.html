@@ -169,6 +169,188 @@
 <span class="strike">Не утонет в речке мяч.</s><br>
 <b><i>Автор: А. Л. Барто</i></b>
 </p>
-</div>            
+</div> 
+<script>
+    let list = [
+                {
+                    "surname": 'Иванов', //Фамилия
+                    "name": 'Иван', //Имя
+                    "patronymic": 'Иванович', //Отчество 
+                    "birthday": '1987-11-30', //Дата рождения в формате ГГГГ-ММ-ДД
+                    "experience": 5, //Стаж работы
+                    "salary": 48200, //Зарплата гросс в месяц
+                    "salary13": 3000, //Годовая премия
+                    "salary13": 3000, //Годовая премия
+                    "gender": 'm', //Премия
+                    "vacation": 0, //Месяц отпуска
+                },
+                {
+                    "surname": 'Петров', 
+                    "name": 'Петр', 
+                    "patronymic": 'Петрович', 
+                    "birthday": '2001-01-01',
+                    "experience": 0,
+                    "salary": 27600,
+                    "salary13": 1000,
+                    "gender": 'm',
+                    "vacation": 8,
+                },
+                {
+                    "surname": 'Капустина', 
+                    "name": 'Ирина', 
+                    "patronymic": 'Николаевна', 
+                    "birthday": '1992-02-02',
+                    "experience": 4,
+                    "salary": 36000,
+                    "salary13": 4000,
+                    "gender": 'f',
+                    "vacation": 3,
+                },
+                {
+                    "surname": 'Билл', 
+                    "name": 'Гейтс', 
+                    "patronymic": '', 
+                    "birthday": '1955-10-28',
+                    "experience": 1,
+                    "salary": 16900,
+                    "salary13": 100,
+                    "gender": 'm',
+                    "vacation": 11,
+                },
+                {
+                    "surname": 'Ложкина', 
+                    "name": 'Галина', 
+                    "patronymic": 'Ильинична', 
+                    "birthday": '2002-01-13',
+                    "experience": 1,
+                    "salary": 80000,
+                    "salary13": 100000,
+                    "gender": 'f',
+                    "vacation": 6,
+                },
+                {
+                    "surname": 'Матрос', 
+                    "name": 'Капитолия', 
+                    "patronymic": 'Владовна', 
+                    "birthday": '1975-04-20',
+                    "experience": 20,
+                    "salary": 90000,
+                    "salary13": 4000,
+                    "gender": 'f',
+                    "vacation": 7,
+                },
+                {
+                    "surname": 'Елисейская', 
+                    "name": 'Италия', 
+                    "patronymic": 'Франсовна', 
+                    "birthday": '1999-08-12',
+                    "experience": 3,
+                    "salary": 36700,
+                    "salary13": 4000,
+                    "gender": 'f',
+                    "vacation": 4,
+                },
+                {
+                    "surname": 'Строгая', 
+                    "name": 'Лада', 
+                    "patronymic": '', 
+                    "birthday": '1990-08-15',
+                    "experience": 7,
+                    "salary": 69000,
+                    "salary13": 3600,
+                    "gender": 'f',
+                    "vacation": 9,
+                },
+                {
+                    "surname": 'Император', 
+                    "name": 'Павел', 
+                    "patronymic": 'Григорьевич', 
+                    "birthday": '1970-12-19',
+                    "experience": 7,
+                    "salary": 28999,
+                    "salary13": 3900,
+                    "gender": 'm',
+                    "vacation": 1,
+                },
+                {
+                    "surname": 'Ватрушкин', 
+                    "name": 'Петр', 
+                    "patronymic": 'Семенович', 
+                    "birthday": '2000-05-13',
+                    "experience": 1,
+                    "salary": 200000,
+                    "salary13": 0,
+                    "gender": 'm',
+                    "vacation": 5,
+                },
+            ];
+
+            const monthList = [
+                ['января','Январь'],
+                ['февраля','Февраль'],
+                ['марта','Март'],
+                ['апреля','Апрель'],
+                ['мая','Май'],
+                ['июня','Июнь'],
+                ['июля','Июль'],
+                ['августа','Август'],
+                ['сентября','Сентябрь'],
+                ['октября','Октябрь'],
+                ['ноября','Ноябрь'],
+                ['декабря','Декабрь'],
+            ]
+
+            for(let i in list) {
+                let net = netSalary(list[i].salary);
+                let year = yearSalary(net,list[i].salary13);
+                let tax = taxReturn(year);
+                let newS = newSalary(list[i].salary);
+                let ageY = age(list[i].birthday);
+                let remains = remainstoPension(list[i].gender,ageY);
+                let birt = birthday(list[i].birthday, monthList);
+                console.log(list[i].surname,birt);
+            }
+            
+            function  birthday(birthday, monthList){
+                let tempDate = new Date(birthday);
+                return tempDate.getDate() + '.' + monthList[tempDate.getMonth()][0] + '.' + tempDate.getFullYear();
+            }
+
+            function remainstoPension(gender,age){
+                let momth = gender === 'm' ? 65*12 : 60*12;
+                let remainstoMonth = momth - age[0]*12+age[1];
+                return [Math.floor(remainstoMonth/12), 12 - remainstoMonth %12];
+            }
+
+            function age(birthday){
+                let today = new Date();
+                let age = new Date(birthday);
+                let year = today.getFullYear()-age.getFullYear();
+                let momth = today.getMonth()-age.getFullYear();
+                if(momth < 0) {
+                    momth +=12;
+                    year -=1;
+                }
+
+                return [year, momth];
+            }
+
+            function newSalary (salary) {
+                return +(1.078*salary).toFixed(2);
+            }
+
+            function taxReturn(yearSalary){
+                let tax= Math.round(0.13*yearSalary);
+                return tax < 1 ? 1 : tax;
+            }
+            function yearSalary(netSalary,salary13){
+                return +(11*netSalary + 0.87*salary13).toFixed(2);
+            }
+
+            function netSalary(salary){
+                return +(salary*1.15*0.87).toFixed(2);
+            }
+                    
+</script>                              
 </body>
 </html>
