@@ -20,7 +20,7 @@
             position: fixed;
             bottom: 0;
         }
-        #send_message {
+        #sent_message {
             width: 150px;
             font-size: 20px;
             color: white;
@@ -59,17 +59,36 @@
 
         </div>
         <div id="send">
-            <input type="text" id="massage">
+            <input type="text" id="message">
             <input type="button" value="Отправить" id="sent_message">
         </div>
     </div>
     <script>
-        function newMassage(text){
+        function newMessage(text){
             let div = document.createElement('div');
             div.className = 'message';
             div.innerHTML=text;
             document.querySelector('#chat').appendChild(div);
-            window.scrollTo({top: Math.ceil(document.querySelector('#chat')).scrollHeight),behavior:'smooth',})
+            window.scrollTo({
+                top: Math.ceil(document.querySelector('#chat').scrollHeight),behavior:'smooth',})
+        }
+        function sendMessage() {
+            let message = document.querySelector('#message');
+            let text = message.value;
+            if(text.trim().length > 0){
+                newMessage(text);
+                message.value = '';
+            }
+        }
+        function sendMessageKeyUp(e){
+            if(e.code == 'Enter'){
+                sendMessage();
+            }
+        }
+
+        window.onload = () => {
+            document.querySelector('#sent_message').onclick = sendMessage;
+            document.querySelector('#message').onkeyup = sendMessageKeyUp;
         }
     </script>
 </body>
