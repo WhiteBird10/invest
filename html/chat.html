@@ -48,6 +48,28 @@
             padding: 10px;
             margin: 10px;
         }
+        .author{
+            display:block;
+            font-weight: bold;
+            text-decoration-line: underline;
+            padding-bottom: 10px;
+            font-size: large;
+        }
+        .time {
+            font-size: x-small;
+            display: block;
+            text-align: right;
+            padding-top: 10px;
+        }
+        .friend{
+            background-color: antiquewhite;
+            border: ipx solid #999;
+        }
+        .me{
+            background-color: wheat;
+            border: ipx solid #262626;
+            align-self: flex-end;
+        }
     </style>
 </head>
 <body>
@@ -63,20 +85,59 @@
             <input type="button" value="Отправить" id="sent_message">
         </div>
     </div>
+    <script src='https://chat.9pr.ru/socket.io/socket.io.js'></script>
     <script>
-        function newMessage(text){
+        const me = 'WhiteBird';
+        function newMessage(id, message, time, author){
             let div = document.createElement('div');
-            div.className = 'message';
-            div.innerHTML=text;
+            div.id = 'message-'+id;
+            if (author === undefined || author === me){
+                div.className = 'message me';
+            }  else{
+                div.className = 'message friend';
+            }  
+            let authorSpan;
+            if (author !== me){
+                authorSpan = document.createElement('span');
+                authorSpan.className = 'author';
+                authorSpan.innerHTML = author;
+                div.appendChild(authorSpan);
+            }
+            let textSpan = document.createElement('span');
+            textSpan.className ='text';
+            textSpan.innerHTML=message;
+            div.appendChild(textSpan);
+
+
+
+            let timeSpan = document.createElement('span');
+            timeSpan.className ='time';
+            let date;
+            date = new Date(time*1000);
+            timeSpan.innerHTML=`
+                ${date.getHours()}:
+                ${date.getMinutes()<10 ? '0'+date.getMinutes(): date.getMinutes()}:
+                ${date.getSeconds()<10 ? '0'+date.getSeconds(): date.getSeconds()}
+            `;
+            div.appendChild(timeSpan);
+
             document.querySelector('#chat').appendChild(div);
             window.scrollTo({
-                top: Math.ceil(document.querySelector('#chat').scrollHeight),behavior:'smooth',})
+                top: Math.ceil(document.querySelector('#chat').scrollHeight),behavior:'smooth',});
         }
+
+        function sendMessageToServer(message) {
+            socket.emit('sendMessage',{
+                'author':me,
+                'message': message,
+            });
+        }
+
         function sendMessage() {
             let message = document.querySelector('#message');
             let text = message.value;
             if(text.trim().length > 0){
-                newMessage(text);
+                sendMessageToServer(text);
                 message.value = '';
             }
         }
@@ -84,11 +145,37 @@
             if(e.code == 'Enter'){
                 sendMessage();
             }
+
         }
 
+        function getMessageFromServer(sec){
+            let xmlhttp= new XMLHttpRequest();
+            let url = 'https://chat.9pr.ru/message/'+sec;
+            xmlhttp.open('GET', url);
+            xmlhttp.send(null);
+            xmlhttp.onload =() => {
+                let data = xmlhttp.responseText;
+                data = JSON.parse(data);
+                for(let i in data) {
+                    if (document.querySelector('#message-'+data[i].id)=== null){
+                        newMessage(data[i].id, data[i].message,data[i].time,data[i].author);
+                    }
+                }
+            }
+            localStorage.setItem('time', Math.floor(Date.now()/1000));
+        }
+
+
         window.onload = () => {
+            socket = io('https://chat.9pr.ru');
             document.querySelector('#sent_message').onclick = sendMessage;
             document.querySelector('#message').onkeyup = sendMessageKeyUp;
+            getMessageFromServer(0);
+            socket.on('connect', () =>{
+                socket.on('message',(body)=>{
+                    newMessage(body.id, body.message, body.time,body.author);
+                });
+            });
         }
     </script>
 </body>
